@@ -1,12 +1,31 @@
-.App {
+/* .App {
   text-align: center;
 }
-
+*{
+  margin: 0;
+  padding: 0;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+.blank{
+  color: red;
+}
 
+ul{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  background-color: black;
+}
+li{
+  color :white;
+  text-decoration: none;
+  padding: 0 10px;
+  font-size: larger;
+  font-weight: bold;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,4 +54,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
