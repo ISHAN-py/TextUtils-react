@@ -28,13 +28,20 @@ export default function TextForm(props) {
 	const handelOnChange = (e) => {
 		setText(e.target.value)
 	}
-	const wordsNumber = (arr1)=>{
-		if(arr1[arr1.length-1]===''){
-			return arr1.length-1;
-		}
-		else{
-			return arr1.length
-		}
+	const handelExtraSpaces = ()=>{
+		let newText = text.split(/[ ]+/);
+		setText(newText.join(" "))
+		props.showAlert('Removed extra spaces','success')
+	}
+	const handelRemoveSpaces = () => {
+		let newText = text.split(' ');
+		newText.filter((e)=>{
+			if(e != ""){
+				return e
+			}
+		})
+		setText(newText.join(''))
+		props.showAlert('Removed all spaces ','success')
 	}
 
 	const [text, setText] = useState("")
@@ -47,6 +54,8 @@ export default function TextForm(props) {
 				<button className="btn btn-primary my-3 mx-1" onClick={handelLowClick} >Convert To Lowercase</button>
 				<button className="btn btn-primary my-3 mx-1" onClick={handelClearClick} >Clear</button>
 				<button className="btn btn-primary my-3 mx-1" onClick={handelCopyClick} >Copy Text</button>
+				<button className="btn btn-primary my-3 mx-1" onClick={handelExtraSpaces} >Remove Extra Spaces</button>
+				<button className="btn btn-primary my-3 mx-1" onClick={handelRemoveSpaces} >Compress (Remove all spaces)</button>
 			</div>
 			<div className="container my3">
 				<h2>Your Text Summary</h2>
