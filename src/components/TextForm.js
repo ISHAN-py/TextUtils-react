@@ -20,10 +20,7 @@ export default function TextForm(props) {
 		props.showAlert('Text Cleared!','success')
 	}
 	const handelCopyClick = () => {
-		const text = document.getElementById('exampleFormControlTextarea1')
-		text.select()
-		navigator.clipboard.writeText(text.value)
-		document.getSelection().removeAllRanges();
+		navigator.clipboard.writeText(text)
 		props.showAlert('Copied!','success')
 	}
 
@@ -61,12 +58,12 @@ export default function TextForm(props) {
 			</div>
 			<div className="container my3">
 				<h2>Your Text Summary</h2>
-				<p>{text.split(' ').filter((element)=>{
+				<p>{text.split(/\s+/).filter((element)=>{
 					if(element.length !== 0){
 						return element
 					}
 				}).length} words; {text.length} char;</p>
-				<p>{text.split(' ').filter((element)=>{
+				<p>{text.split(/\s+/).filter((element)=>{
 					if(element.length !== 0){
 						return element
 					}
